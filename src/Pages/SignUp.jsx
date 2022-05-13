@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 const SignUp = () => {
@@ -10,43 +9,73 @@ const SignUp = () => {
     console.log(data);
   };
   return (
-    <div>
-      <h1>Demo App</h1>
-
-      <div className='form-container'>
+    <div className='h-full px-5 flex flex-col justify-center items-center'>
+      <div className='p-6 w-full mx-5 shadow-lg rounded-xl'>
+        <h1 className='text-3xl font-semibold my-3'>Sign Up</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <label htmlFor='first_name'>First name:</label>
-          <input type='text' {...register('first_name', { required: true })} />
+          <label htmlFor='first_name' className='labels'>
+            First name:
+          </label>
+          <input
+            type='text'
+            className='input-text-sm focus:outline-none focus:shadow-outline'
+            {...register('first_name', { required: true })}
+          />
 
-          <label htmlFor='last_name'>Last name:</label>
-          <input type='text' {...register('last_name', { required: true })} />
+          <label htmlFor='last_name' className='labels'>
+            Last name:
+          </label>
+          <input
+            type='text'
+            className='input-text-sm focus:outline-none focus:shadow-outline'
+            {...register('last_name', { required: true })}
+          />
 
-          <label htmlFor='phone_num'>Phone number:</label>
-          <input {...register('phone_num')} />
+          <label htmlFor='phone_num' className='labels'>
+            Phone number:
+          </label>
+          <input
+            className='input-text-sm focus:outline-none focus:shadow-outline'
+            {...register('phone_num')}
+          />
 
-          <label htmlFor='email'>Email Address:</label>
+          <label htmlFor='email' className='labels'>
+            Email Address:
+          </label>
           <input
             type='email'
+            className='input-text-sm focus:outline-none focus:shadow-outline'
             {...register('email', { required: true, minLength: 5 })}
           />
 
-          <label htmlFor='password'>Password:</label>
+          <label htmlFor='password' className='labels'>
+            Password:
+          </label>
           <input
             type='password'
+            className='input-text-sm focus:outline-none focus:shadow-outline'
             {...register('password', { required: true, minLength: 8 })}
           />
 
-          <label htmlFor='confirm_password'>Confirm password:</label>
+          <label htmlFor='confirm_password' className='labels'>
+            Confirm password:
+          </label>
           <input
             type='password'
+            className='input-text-sm focus:outline-none focus:shadow-outline'
             {...register('confirm_password', { required: true, minLength: 8 })}
           />
 
-          <button type='submit'>Sign Up</button>
+          <div className='flex items-center justify-center mt-4'>
+            <button type='submit' className='btn'>
+              Sign Up
+            </button>
+          </div>
         </form>
       </div>
-
+      {/* 
       <Link to={'/sign-in'}>here</Link>
+      <p className='text-5xl font-bold'>Lorem, ipsum.</p> */}
     </div>
   );
 };
